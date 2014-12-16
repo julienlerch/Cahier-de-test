@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		 <meta charset="utf-8">
+		<title>Cahier de tests</title>
+<!--
+	https://github.com/eligrey/FileSaver.js
+-->
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.min.js"></script>
+		<script src="statics/scripts.js"></script>
+		<script src="behat.js"></script>
+		<script src="statics/FileSaver.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" >
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" type="text/css" href="statics/styles.css" >
+		<!--[if lt IE 9]>
+			<script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js"></script>
+			<script src="statics/ie.js"></script>
+			<link rel="stylesheet" type="text/css" href="statics/ie.css" />
+		<![endif]-->
+	</head>
+
+	<body class="container">
+		<form class="row form-horizontal" id="main">
+			<h1><span class="col-sm-11">Cahier de tests</span>
+				<small><a href="aide.html" class="btn btn-default"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Aide</a></small>
+			</h1>
+
+
+			<nav class="col-sm-12 navbar navbar-default" role="navigation">
+				<ul class="nav nav-tabs col-sm-9" role="tablist">
+					<li role="presentation" class="active"><a href="#func" aria-controls="func" role="tab" data-toggle="tab">Fonctionnalité</a></li>
+					<li role="presentation"><a href="#ctx" aria-controls="ctx" role="tab" data-toggle="tab">Contexte</a></li>
+					<li role="presentation"><a href="#scenario1" aria-controls="scenario1" role="tab" data-toggle="tab">Scénario 1</a></li>
+					<li><a href="#new" class="add"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;Nouveau</a></li>
+				</ul>
+				<ul class="nav col-sm-3">
+					<li class="navbar-right">
+						<button type="button" class="btn btn-primary navbar-btn create"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Enregistrer</button>
+					</li>
+				</ul>
+			</nav>
+			<hr class="clear" >
+			<div class="tab-content">
+
+				<fieldset role="tabpane" class="tab-pane active panel panel-default" id="func">
+				<!--
+					************************************************************
+					***                FONCTIONNALITE                        ***
+					************************************************************
+					-->
+					<div class="form-group panel-heading">
+						<label for="testing[label]]" class="col-sm-3 control-label">Fonctionnalité :</label>
+						<p class="col-sm-9">
+							<input type="text" class="form-control input-lg" maxlength="255" placeholder="Ma super fonctionnalité à tester" name="testing[label]" >
+						</p>
+					</div>
+
+					<div class="form-group"><label for="testing[as]" class="col-sm-3 control-label">Finalité du test :</label>
+						<p class="col-sm-9"><input type="text" maxlength="255" placeholder="Afin de ..." name="testing[as]" size="75" class="form-control" ></p>
+					</div>
+					<div class="form-group"><label for="testing[ctx]" class="col-sm-3 control-label">Contexte du test :</label>
+						<p class="col-sm-9"><input type="text" maxlength="255" placeholder="Etant donné que ..." name="testing[ctx]" size="75" class="form-control" ></p>
+					</div>
+					<div class="form-group"><label for="testing[res]" class="col-sm-3 control-label">Résultat attendu :</label>
+						<p class="col-sm-9"><input type="text" maxlength="255" placeholder="Je dois ..." name="testing[res]" size="75" class="form-control" ></p>
+					</div>
+				</fieldset>
+
+				<fieldset  role="tabpanel" class="tab-pane panel panel-default" id="ctx">
+				<!--
+				************************************************************
+				***                   CONTEXTE                           ***
+				************************************************************
+				-->
+				<div class="panel-heading">
+					<h2>Contexte
+					<small>(&nbsp;Le contexte est exécuté au début de chaque scénario)</small></h2>
+				</div>
+				<table class="table table-condensed">
+					<thead>
+					<tr>
+						<th width="25">&nbsp;</th>
+						<th width="175">&nbsp;</th>
+						<th>&Eacute;tape</th>
+						<th width="150" class="text-center">Paramètre 1</th>
+						<th width="150" class="text-center">Paramètre 2</th>
+					</tr>
+					</thead>
+					<tfoot>
+					<tr><td colspan="5" class="navbar navbar-default">
+						<p class="container-fluid" role="group">
+							<span class="navbar-right">
+								<button type="button" class="btn btn-primary create"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Enregistrer</button>
+							</span>
+						</p></td>
+					</tr>
+					</tfoot>
+					<tbody>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input type="hidden" name="ctx[assert][0]" value="Soit " >
+						<p class="form-control-static text-right">Soit </p></td>
+						<td><div>
+							<input type="text" name="ctx[step][0]" size="50" class="form-control test-label" >
+							<p class="help-block"></p>
+							</div>
+						</td>
+						<td><input type="text" name="ctx[param][0][0]" size="20" disabled class="form-control test-param" ></td>
+						<td><input type="text" name="ctx[param][0][1]" size="20" disabled class="form-control test-param" ></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" checked  class="form-control"name="activate[ctx][1]" ></td>
+						<td>
+							<select class="form-control text-right" name="ctx[step][1]"></select>
+						</td>
+						<td><div>
+							<input type="text" name="ctx[step][1]" size="50" class="form-control test-label">
+							<p class="help-block"></p>
+							</div>
+						</td>
+						<td><input type="text" name="ctx[param][1][0]" size="20" disabled class="form-control test-param" ></td>
+						<td><input type="text" name="ctx[param][1][1]" size="20" disabled class="form-control test-param" ></td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" checked  class="form-control"name="activate[ctx][2]" ></td>
+						<td><select class="form-control text-right" name="ctx[assert][1]"></select></td>
+						<td><div>
+							<input type="text" name="ctx[test][2]" size="50" class="form-control test-label" >
+							<p class="help-block"></p>
+							</div>
+						</td>
+						<td><input type="text" name="ctx[param][2][0]" size="20" disabled class="form-control test-param" ></td>
+						<td><input type="text" name="ctx[param][2][1]" size="20" disabled class="form-control test-param" ></td>
+					</tr>
+					</tbody>
+				</table>
+				</fieldset>
+
+
+				<fieldset role="tabpanel" class="tab-pane scenario panel panel-default" id="scenario1">
+				<!--
+				************************************************************
+				***                  SCENARIO 1                          ***
+				************************************************************
+				-->
+					<div class="panel-heading">
+						<p class="form-inline">
+							<span class="col-sm-4"><input type="text" name="scenario[0][label]" value="" placeholder="Intitulé du scénario" size="30" class="input-lg form-control scenario-label" ></span><br >
+							<small class="col-sm-4">(<input type="text" name="scenario[0][tags]" value="" placeholder="@tags" class="input-sm form-control" >)</small>
+						</p>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="is_scenario_outline" class="has-vars"> Ce test comporte des variables
+							</label>
+						</div>
+						<hr class="clear" >
+					</div>
+
+
+					<table class="table table-condensed">
+						<thead>
+						<tr>
+							<th width="25">&nbsp;</th>
+							<th width="175">&nbsp;</th>
+							<th>&Eacute;tape</th>
+							<th width="150" class="text-center">Paramètre 1</th>
+							<th width="150" class="text-center">Paramètre 2</th>
+						</tr>
+						</thead>
+						<tfoot>
+						<tr><td colspan="5" class="navbar navbar-default">
+							</td>
+						</tr>
+						</tfoot>
+						<tbody>
+						<tr>
+							<td>&nbsp;</td>
+							<td><input type="hidden" name="scenario[0][assert][0]" value="Soit" >
+							<p class="form-control-static text-right">Soit </p></td></td>
+							<td><div>
+								<input type="text" name="scenario[0][step][0]" size="50" class="form-control test-label" >
+								<p class="help-block"></p>
+								</div>
+							</td>
+							<td><input type="text" name="scenario[0][param][0][0]" size="20" disabled class="form-control test-param" ></td>
+							<td><input type="text" name="scenario[0][param][0][1]" size="20" disabled class="form-control test-param" ></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" checked  class="form-control"name="activate[0][1]" ></td>
+							<td><select class="form-control text-right" name="scenario[0][assert][1]"></select></td>
+							<td><div>
+								<input type="text" name="scenario[0][step][1]" size="50" class="form-control test-label" >
+								<p class="help-block"></p>
+								</div>
+							</td>
+							<td><input type="text" name="scenario[0][param][1][0]" size="20" disabled class="form-control test-param" ></td>
+							<td><input type="text" name="scenario[0][param][1][1]" size="20" disabled class="form-control test-param" ></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" checked  class="form-control"name="activate[0][2]" ></td>
+							<td><select class="form-control text-right" name="scenario[0][assert][2]"></select></td>
+							<td><div>
+								<input type="text" name="scenario[0][step][2]" class="form-control test-label" >
+								<p class="help-block"></p>
+								</div>
+							</td>
+							<td><input type="text" name="scenario[0][param][2][0]" size="20" disabled class="form-control test-param" ></td>
+							<td><input type="text" name="scenario[0][param][2][1]" size="20" disabled class="form-control test-param" ></td>
+						</tr>
+						</tbody>
+					</table>
+
+					<div class="examples">
+						<span class="bg-info text-info"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Le scénario sera exécuté une fois par ligne, en rempaçant les variables
+						 "@xxx" par les valeurs du tableau ci-dessous</span>
+						<table class="scenario-vars">
+							<caption>Répéter le test avec les variables ci-dessous :</caption>
+							<thead><tr><td>&nbsp;</td></tr></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+
+					<p class="container-fluid" role="group">
+						<span class="navbar-right">
+							<button type="button" class="btn btn-danger delete"><span class="glyphicon glyphicon-remove"></span>&nbsp;Supprimer ce test</button>
+							<button type="button" class="btn btn-primary create"><span class="glyphicon glyphicon-floppy-disk"></span>&nbsp;Enregistrer</button>
+						</span>
+					</p>
+				</fieldset>
+			</div>
+		</form>
+
+		<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Save file as" aria-hidden="true">
+			<div class="modal-dialog">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fermer</span></button>
+						<h4 class="modal-title" id="modal-title">Enregistrer le plan de test</h4>
+					</div>
+					<form class="modal-body">
+						<div class="form-group">
+							<label for="filename" class="col-sm-3 control-label">Nom du fichier :</label>
+							<p class="col-sm-9">
+								<input type="text" class="filename" id="text-filename" placeholder="Nom du fichier" >.feature
+							</p>
+						</div>
+						<p class="text-right">
+							<input type="submit" value="Enregistrer" class="btn btn-primary" >
+							<input type="button" value="Annuler" class="btn btn-default" >
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

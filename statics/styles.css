@@ -1,0 +1,79 @@
+fieldset {
+	border	: 1px solid #999;
+}
+
+.ui-autocomplete {
+	font-size	: 85%;
+	max-height	: 220px;
+	overflow-y	: auto;
+	overflow-x	: hidden;
+}
+input.form-control {
+	background : transparent;
+}
+input[type="text"] {
+	border : 0;
+	border-bottom: 1px solid #999;
+}
+input.form-control[disabled], select.form-control[disabled] {
+	opacity	: 0.3
+}
+input.test-param[disabled]{
+	visibility: hidden;
+}
+
+
+.clear {
+	clear	: both;
+	margin	: -1em 0 0;
+	visibility: hidden;
+}
+#func .form-group {
+	margin-left	: 0;
+	margin-right	: 0;
+}
+.help-block {
+	font-size	: 80%;
+	display		: none;
+	margin		: 0;
+}
+input.test-label:focus + p.help-block {
+	display	: block;
+}
+.table tbody tr td {
+	border-top	: 1px solid transparent;
+}
+span.bg-info {
+	padding	: 5px 10px;
+	margin	: 15px;
+	display	: block;
+}
+.scenario-vars {
+
+}
+.scenario-vars td, .scenario-vars th {
+	border : 1px dotted #ccc;
+	border-width	: 0 1px;
+	padding			: 0 5px;
+}
+.scenario-vars th {
+	text-align	: center;
+}
+.scenario-vars td {
+	width	: 120px;
+}
+
+.scenario-vars tbody td:last-child {
+	width	: auto;
+	border : 0;
+}
+.scenario-vars tbody td a{
+	display	: none;
+}
+.scenario-vars tbody td:last-child a{
+	display	: inline;
+	border : 1px solid #ccc;
+}
+.scenario-vars input:valid {
+	border : 0;
+}
